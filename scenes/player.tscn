@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlmp3b8apijdx"]
 
 [ext_resource type="Texture2D" uid="uid://dlhfr3jt1xhua" path="res://assets/sprites/knight.png" id="1_40jyq"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_soujr"]
+[ext_resource type="Script" uid="uid://tdiftud3awt2" path="res://scripts/player.gd" id="1_soujr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xcant"]
 radius = 5.0

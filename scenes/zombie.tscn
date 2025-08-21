@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cpabx2amq2c3f"]
 
-[ext_resource type="Script" path="res://scripts/slime.gd" id="1_bfttn"]
+[ext_resource type="Script" uid="uid://bapoyb8c4pmya" path="res://scripts/slime.gd" id="1_bfttn"]
 [ext_resource type="Texture2D" uid="uid://dv54kxdme120p" path="res://assets/sprites/zombie.png" id="2_0t1ar"]
 [ext_resource type="PackedScene" uid="uid://bmhs3wpbl8ti8" path="res://scenes/kill_zone.tscn" id="3_0r1b4"]
 

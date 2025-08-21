@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://k1gpj3262eqc"]
 
-[ext_resource type="Script" path="res://scripts/sai.gd" id="1_4s3xe"]
+[ext_resource type="Script" uid="uid://drewxfygbdg34" path="res://scripts/sai.gd" id="1_4s3xe"]
 [ext_resource type="Texture2D" uid="uid://csmoxyc2p5i11" path="res://assets/sprites/sai caminando.png" id="2_75l4b"]
 [ext_resource type="Texture2D" uid="uid://db7ytei383bl6" path="res://assets/sprites/jugador-sai- saltando  con armadura-Sheet.png" id="3_2l110"]
 [ext_resource type="Texture2D" uid="uid://cqyhlcsaqg40t" path="res://assets/sprites/sai descansando.png" id="3_frylx"]
