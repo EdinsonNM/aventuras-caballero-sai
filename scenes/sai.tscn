@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=3 uid="uid://k1gpj3262eqc"]
+
+[ext_resource type="Script" path="res://scripts/sai.gd" id="1_4s3xe"]
+[ext_resource type="Texture2D" uid="uid://csmoxyc2p5i11" path="res://assets/sprites/sai caminando.png" id="2_75l4b"]
+[ext_resource type="Texture2D" uid="uid://db7ytei383bl6" path="res://assets/sprites/jugador-sai- saltando  con armadura-Sheet.png" id="3_2l110"]
+[ext_resource type="Texture2D" uid="uid://cqyhlcsaqg40t" path="res://assets/sprites/sai descansando.png" id="3_frylx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrggc"]
+size = Vector2(10, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gnhs"]
+atlas = ExtResource("2_75l4b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiphq"]
+atlas = ExtResource("2_75l4b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypktm"]
+atlas = ExtResource("2_75l4b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58nx7"]
+atlas = ExtResource("2_75l4b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pn13"]
+atlas = ExtResource("3_2l110")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bob62"]
+atlas = ExtResource("3_2l110")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yc4d"]
+atlas = ExtResource("3_2l110")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vffrm"]
+atlas = ExtResource("3_frylx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6yn5"]
+atlas = ExtResource("3_frylx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqfw0"]
+atlas = ExtResource("3_frylx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdmfw"]
+atlas = ExtResource("3_frylx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g5ey"]
+atlas = ExtResource("3_2l110")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxc3w"]
+atlas = ExtResource("3_2l110")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rahxw"]
+atlas = ExtResource("3_2l110")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5oqjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gnhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiphq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypktm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58nx7")
+}],
+"loop": true,
+"name": &"caminando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pn13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bob62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yc4d")
+}],
+"loop": true,
+"name": &"cayendo",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vffrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6yn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqfw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdmfw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g5ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxc3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rahxw")
+}],
+"loop": false,
+"name": &"saltando",
+"speed": 10.0
+}]
+
+[node name="sai" type="CharacterBody2D"]
+z_index = 5
+position = Vector2(1, 0)
+collision_layer = 2
+script = ExtResource("1_4s3xe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_wrggc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_5oqjr")
+animation = &"cayendo"
