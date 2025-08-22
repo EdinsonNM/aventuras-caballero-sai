@@ -2,3 +2,4 @@
 .godot/
 ._*
 .DS_Store
+build/
