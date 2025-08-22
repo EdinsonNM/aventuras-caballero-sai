@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://k1gpj3262eqc"]
+[gd_scene load_steps=27 format=3 uid="uid://k1gpj3262eqc"]
 
 [ext_resource type="Script" uid="uid://drewxfygbdg34" path="res://scripts/sai.gd" id="1_4s3xe"]
 [ext_resource type="Texture2D" uid="uid://csmoxyc2p5i11" path="res://assets/sprites/sai caminando.png" id="2_75l4b"]
 [ext_resource type="Texture2D" uid="uid://db7ytei383bl6" path="res://assets/sprites/jugador-sai- saltando  con armadura-Sheet.png" id="3_2l110"]
 [ext_resource type="Texture2D" uid="uid://cqyhlcsaqg40t" path="res://assets/sprites/sai descansando.png" id="3_frylx"]
+[ext_resource type="Texture2D" uid="uid://datfa0il5wbd4" path="res://assets/sprites/sai-peleando.png" id="5_5j7j7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrggc"]
 size = Vector2(10, 17)
@@ -50,6 +51,22 @@ region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdmfw"]
 atlas = ExtResource("3_frylx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fqkj"]
+atlas = ExtResource("5_5j7j7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1voaq"]
+atlas = ExtResource("5_5j7j7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7oy1"]
+atlas = ExtResource("5_5j7j7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mtqe"]
+atlas = ExtResource("5_5j7j7")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1g5ey"]
@@ -116,6 +133,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4fqkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1voaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7oy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mtqe")
+}],
+"loop": true,
+"name": &"peleando",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1g5ey")
 }, {
 "duration": 1.0,
@@ -128,6 +162,9 @@ animations = [{
 "name": &"saltando",
 "speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j7j7"]
+size = Vector2(18, 18)
 
 [node name="sai" type="CharacterBody2D"]
 z_index = 5
@@ -143,4 +180,12 @@ shape = SubResource("RectangleShape2D_wrggc")
 position = Vector2(0, -1)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5oqjr")
-animation = &"cayendo"
+animation = &"peleando"
+frame_progress = 0.713354
+
+[node name="AttackArea" type="Area2D" parent="."]
+monitoring = false
+
+[node name="attack-collision" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_5j7j7")
