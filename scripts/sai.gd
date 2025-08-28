@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _frames: SpriteFrames = _animated_sprite.sprite_frames
 
 var is_facing_right := true
-var is_attacking := false   # <-- NUEVO
+var is_attacking := false
 
 func _ready() -> void:
 	add_to_group("jugador")
@@ -19,6 +19,10 @@ func _ready() -> void:
 	_animated_sprite.animation_finished.connect(_on_animation_finished)
 
 func updateAnimations(direction):
+	# Si está atacando, no cambiamos la animación de movimiento
+	if is_attacking:
+		return
+		
 	if not is_on_floor():
 		if velocity.y < 0:
 			_animated_sprite.play("saltando")
@@ -48,18 +52,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking = true
 		$AttackArea.monitoring = true   # habilita el área
-		velocity.x = 0              # opcional: parar al atacar
+		# NO detenemos la velocidad horizontal - permitimos movimiento durante ataque
 		_animated_sprite.play("peleando")
 		print("attacking..." )
+	
+	# Movimiento siempre activo, incluso durante ataque
+	if direction:
+		velocity.x = direction * SPEED
 	else:
-		# Mientras ataca, no cambiamos la animación
-		if not is_attacking:
-			if direction:
-				velocity.x = direction * SPEED
-			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
-			flip()
-			updateAnimations(direction)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Flip siempre activo
+	flip()
+	
+	# Solo actualizamos animaciones si no está atacando
+	if not is_attacking:
+		updateAnimations(direction)
 
 	move_and_slide()
 

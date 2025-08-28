@@ -164,7 +164,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j7j7"]
-size = Vector2(18, 18)
+size = Vector2(13, 18)
 
 [node name="sai" type="CharacterBody2D"]
 z_index = 5
@@ -181,11 +181,11 @@ position = Vector2(0, -1)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5oqjr")
 animation = &"peleando"
-frame_progress = 0.713354
+frame_progress = 0.00350426
 
 [node name="AttackArea" type="Area2D" parent="."]
 monitoring = false
 
 [node name="attack-collision" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(1, -2)
+position = Vector2(7, -2)
 shape = SubResource("RectangleShape2D_5j7j7")
